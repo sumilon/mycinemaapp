@@ -28,7 +28,7 @@ public class CinemaController {
 
 	@GetMapping("/welcome")
 	public String welcome() {
-		return "Welcome to AWS programming";
+		return "Welcome to AWS programming. Thank You";
 	}
 
 	@PostMapping
