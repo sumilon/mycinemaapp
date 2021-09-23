@@ -19,6 +19,6 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
 	
 	public List<Cinema> findAllByCinemaPlatformOrderByReleaseDateAsc(CinemaPlatform cinemaPlatform);
 	
-	@Query(value = "from Cinema where releaseDate BETWEEN :startDate AND :endDate")
+	@Query(value = "from Cinema where releaseDate BETWEEN :startDate AND :endDate order by releaseDate asc")
 	public List<Cinema> getAllBetweenData(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 }

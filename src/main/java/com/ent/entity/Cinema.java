@@ -12,29 +12,42 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CINEMA")
+@Table(name = "CINEMA")
 public class Cinema {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(name="cinema_name")
+
+	@Column(name = "cinema_name")
 	private String cinemaName;
-	
-	@Column(name="release_date")
+
+	@Column(name = "release_date")
 	private Date releaseDate;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(unique = true, name="cinema_type")
+	@Column(name = "cinema_type")
 	private CinemaType cinemaType;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(unique = true, name="cinema_platform")
+	@Column(name = "cinema_platform")
 	private CinemaPlatform cinemaPlatform;
-	
-	@Column(name="flag")
+
+	@Column(name = "flag")
 	private Boolean flag;
+
+	public Cinema() {
+	}
+
+	public Cinema(Long id, String cinemaName, Date releaseDate, CinemaType cinemaType, CinemaPlatform cinemaPlatform,
+			Boolean flag) {
+		this.id = id;
+		this.cinemaName = cinemaName;
+		this.releaseDate = releaseDate;
+		this.cinemaType = cinemaType;
+		this.cinemaPlatform = cinemaPlatform;
+		this.flag = flag;
+	}
 
 	public Long getId() {
 		return id;
@@ -97,7 +110,7 @@ public class Cinema {
 	public enum CinemaPlatform {
 		NETFLIX, PRIME, HOTSTAR, HOICHOI, ADDATIMES, THREATER, VOD, ZEE5, SONYLIV;
 	}
-	
+
 	public enum CinemaCategory {
 		THISWEEK, NEXTWEEK, THISMONTH, NEXTMONTH;
 	}
